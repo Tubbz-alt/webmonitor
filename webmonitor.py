@@ -4,6 +4,7 @@ import requests
 from requests.exceptions import RequestException
 import time
 
+
 def main():
     log = logbook.Logger('webmonitor')
 
