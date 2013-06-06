@@ -29,7 +29,7 @@ def main():
     logbook.handlers.StderrHandler(level=args.loglevel).push_application()
 
     last_known_good = None
-    log.info('Starting monitor on %s' % args.url)
+    log.info('Starting monitor on %s.' % args.url)
 
     while True:
         log.debug('Retrieving %r' % args.url)
@@ -46,7 +46,7 @@ def main():
                 )
             log.error('Failed to retrieve %r: %r. %s' % (args.url, e, last))
         else:
-            log.info('%r is up' % args.url)
+            log.info('%r is up.' % args.url)
             last_known_good = time.time()
 
         log.debug('Sleeping for %s seconds.' % args.interval)
