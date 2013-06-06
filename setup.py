@@ -24,10 +24,7 @@ setup(
     install_requires=['logbook', 'requests'],
     entry_points={
         'console_scripts': [
-            'commandname = package:func',
+            'webmonitor = webmonitor:main',
         ],
-        'gui_scripts': [
-            'commandname = package:func',
-        ]
     }
 )
