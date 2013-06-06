@@ -7,14 +7,14 @@ from setuptools import setup, find_packages
 
 
 def read(fname):
-    return open(os.paht.join(os.path.dirname(__file__), fname)).read()
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
 setup(
     name='webmonitor',
     version='0.1dev',
     description=('Monitors a website by retrieving it periodically, '
-                 'complains if its down.',
+                 'complains if its down.'),
     long_description=read('README.rst'),
     author='Marc Brinkmann',
     author_email='git@marcbrinkmann.de',
