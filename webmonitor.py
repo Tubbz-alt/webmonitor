@@ -11,8 +11,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('url')
     parser.add_argument('-d', '--debug', action='store_const',
-                        const=logbook.DEBUG,
-                        help='Show detailed output')
+                        const=logbook.DEBUG, dest='loglevel',
+                        help='Show really verbose output.')
+    parser.add_argument('-v', '--verbose', action='store_const',
+                        const=logbook.INFO, dest='loglevel',
+                        help='Show verbose output.')
     parser.add_argument('-i', '--interval', default=30, type=float,
                         help='How many seconds to wait between checks.')
     parser.add_argument('-V', '--no-verify', default=True, dest='verify',
@@ -21,6 +24,9 @@ def main():
                              'requests.')
     parser.set_defaults(loglevel=logbook.ERROR)
     args = parser.parse_args()
+
+    logbook.handlers.NullHandler().push_application()
+    logbook.handlers.StderrHandler(level=args.loglevel).push_application()
 
     last_known_good = None
     log.info('Starting monitor on %s' % args.url)
