@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name='webmonitor',
-    version='0.1dev',
+    version='0.3',
     description=('Monitors a website by retrieving it periodically, '
                  'complains if its down.'),
     long_description=read('README.rst'),
